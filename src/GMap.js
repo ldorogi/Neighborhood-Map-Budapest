@@ -9,7 +9,7 @@ class GMap extends Component {
 		return (
 			<div role="application" id="map">
 				<Map google={google}
-					initialCenter={{ lat: 46.770439, lng: 23.591423 }}
+					initialCenter={{ lat: 47.507338, lng: 19.045648 }} 
 					zoom={15}
 					onClick={this.onMapClicked}>
 					{places.map(place =>
