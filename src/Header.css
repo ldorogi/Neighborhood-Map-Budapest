@@ -1,0 +1,19 @@
+.App-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #222;
+	height: 60px;
+	width: calc(100% - 250px);
+	color: white;
+	float: right;
+}
+
+.App-title {
+	margin: 0;
+	font-size: 1.5em;
+}
+
+.hamburger {
+	margin-left: 15px;
+}
