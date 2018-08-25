@@ -15,17 +15,24 @@ class App extends Component {
     selectedPlace: {},
   };
 
-  // Handle marker click menu click 
-  onMarkerClick = (props, marker, x) => {
-
+  // Handle marker click  
+  onMarkerClick = (props, marker, x) => 
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true
     });
-  }
+  
+  // Handle info window close 
+  onInfoWindowClose = (props, marker, x) => {
+    this.setState({
+      activeMarker: {},
+      selectedPlace: {},
+      showingInfoWindow: false
+    });
+  }  
 
-  // Handle hamburger menu click/enter key
+  // Handle hamburger menu selection
   onHamburgerClick = (x) => {
     if (x.key === 'Enter' || !x.key) {
       const menu = document.querySelector('.hamburger');
@@ -44,7 +51,7 @@ class App extends Component {
     }
   }
 
-  // Handle list item click/enter key
+  // Handle list item selection
   onListClick = (props, x) => {
     if (x.key === 'Enter' || !x.key) {
       let clickedMarker;
@@ -55,16 +62,6 @@ class App extends Component {
       }
       clickedMarker = clickedMarker.find(marker => marker.getAttribute('title') === props.venue);
       clickedMarker.click();
-    }
-  }
-
-  // Handle map click
-  onMapClicked = () => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
-      })
     }
   }
 
@@ -79,7 +76,7 @@ class App extends Component {
     window.gm_authFailure = function () {
       document.querySelector('.map-container').innerHTML = `
         <div class = "error-container">
-            <h3>Ooops... Something went wrong while trying to load the map!</h2>
+            <h3>Authentication error: Google Key is invalid!</h2>
         </div>
         `;
     }
@@ -90,7 +87,7 @@ class App extends Component {
         const message = document.querySelector('.gm-err-message').innerText;
         errorContainer.innerHTML = `
           <div class = "error-container">
-            <h3>Something went wrong while trying to load the map!</h2>
+            <h3>Error occured while trying to load the map!</h2>
             <div class = "error-message">${message}</div>
           </div>
         `;
@@ -99,7 +96,7 @@ class App extends Component {
       if (!document.querySelector('#map')) {
         document.querySelector('.map-container').innerHTML = `
         <div class = "error-container">
-            <h3>Something went wrong while trying to load the map!</h2>
+            <h3>Error occured while trying to load the map!</h2>
         </div>
         `;
       }
@@ -111,7 +108,7 @@ class App extends Component {
     const errorContainer = document.querySelector('.list');
     errorContainer.innerHTML = `
           <div class = "error-container">
-            <h3>Something went wrong while trying to get places!</h2>
+            <h3>Error occured while trying to get places from FourSquare API!</h2>
             <div class = "error-message">${error}</div>
           </div>
         `;
@@ -152,6 +149,7 @@ class App extends Component {
           <GMap
             places={showPlaces}
             onMarkerClick={this.onMarkerClick}
+            onInfoWindowClose={this.onInfoWindowClose}
             activeMarker={this.state.activeMarker}
             showingInfoWindow={this.state.showingInfoWindow}
             selectedPlace={this.state.selectedPlace}

@@ -11,7 +11,8 @@ const headers = {
     'Accept': 'application/json'
   }
 
+// getting top locations with an external API (Foursquare API) 
 export const get = () =>
     fetch(`${api}/v2/venues/explore?near=${location}&client_id=${cli_id}&client_secret=${cli_secret}&v=20180822&limit=${limit}&section=${section}`, { headers })
-    .then(r => r.json())
+    .then(resp => resp.json())
     .then(data => data.response.groups[0].items)

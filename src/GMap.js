@@ -3,14 +3,15 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import { GOOGLE_MAP_KEY } from './Keys';
 
 class GMap extends Component {
+	
 	render() {
-		const { google, places, onMarkerClick, activeMarker, showingInfoWindow, selectedPlace} = this.props;
+		const { google, places, onMarkerClick, activeMarker, showingInfoWindow, onInfoWindowClose, selectedPlace} = this.props;
 
 		return (
 			<div role="application" id="map">
 				<Map google={google}
 					initialCenter={{ lat: 47.507338, lng: 19.045648 }} 
-					zoom={15}
+					zoom={14}
 					onClick={this.onMapClicked}>
 					{places.map(place =>
 						<Marker
@@ -27,7 +28,8 @@ class GMap extends Component {
 					)}
 					<InfoWindow
 						marker={activeMarker}
-						visible={showingInfoWindow}>
+						visible={showingInfoWindow}
+						onClose={onInfoWindowClose}>
 						<div>
 							<h1 tabIndex={'0'}>{selectedPlace.name}</h1>
 							<p tabIndex={'0'}><b>Street:</b> {selectedPlace.description}</p>
