@@ -11,14 +11,14 @@ class Header extends Component {
                     role="button"
                     aria-label="toggle menu"
                     tabIndex={1}
-                    onKeyPress={(e) => { this.props.onHamburgerClick(e) }}
-                    onClick={(e) => { this.props.onHamburgerClick(e) }}
+                    onKeyPress={(x) => { this.props.onHamburgerClick(x) }}
+                    onClick={(x) => { this.props.onHamburgerClick(x) }}
                     className="hamburger"
                     style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
                 > 
                 &#9776;
                 </div>
-                <h1 className="App-title">Neighborhood Map</h1>
+                <h1 className="App-title">Neighborhood Map of Budapest</h1>
                 <div></div>
             </header>
         )

@@ -16,7 +16,7 @@ class App extends Component {
   };
 
   // Handle marker click menu click 
-  onMarkerClick = (props, marker, e) => {
+  onMarkerClick = (props, marker, x) => {
 
     this.setState({
       selectedPlace: props,
@@ -26,8 +26,8 @@ class App extends Component {
   }
 
   // Handle hamburger menu click/enter key
-  onHamburgerClick = (e) => {
-    if (e.key === 'Enter' || !e.key) {
+  onHamburgerClick = (x) => {
+    if (x.key === 'Enter' || !x.key) {
       const menu = document.querySelector('.hamburger');
 
       if (menu.getAttribute('aria-expanded') === 'true') {
@@ -45,8 +45,8 @@ class App extends Component {
   }
 
   // Handle list item click/enter key
-  onListClick = (props, e) => {
-    if (e.key === 'Enter' || !e.key) {
+  onListClick = (props, x) => {
+    if (x.key === 'Enter' || !x.key) {
       let clickedMarker;
       if (document.querySelectorAll('.gmnoprint map area').length !== 0) {
         clickedMarker = [...document.querySelectorAll('.gmnoprint map area')];

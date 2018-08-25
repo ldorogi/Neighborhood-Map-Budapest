@@ -6,8 +6,8 @@ class ListItem extends Component {
 			<li className="list-item"
 				tabIndex={3}
 				role="button"
-				onKeyPress={(e) => { this.props.onListClick(this.props, e) }}
-				onClick={(e) => { this.props.onListClick(this.props, e) }}
+				onKeyPress={(x) => { this.props.onListClick(this.props, x) }}
+				onClick={(x) => { this.props.onListClick(this.props, x) }}
 				key={this.props.referralId}
 				>
 				{this.props.venue}
