@@ -8,6 +8,7 @@ Project 8 Front End Nanodegree Udacity
 * [How To Run This App](How-To-Run-This-App)
 * [Run with Service Worker](Run-with-Service-Worker)
 * [Dependencies](Dependencies)
+* [NOTE](Note)
 
 ## Project Overview
 
@@ -35,3 +36,7 @@ This is a single page application featuring a map of neighborhood of Budapest, c
 * [Bootstrapped with Create React App](https://github.com/facebook/create-react-app)
 * [Map API system used: google-maps-react](https://github.com/fullstackreact/google-maps-react)
 * [Foursquare API for top locations](https://foursquare.com/)
+
+## NOTE
+
+It is important to note that the assets will only be cached when we are in production mode.
