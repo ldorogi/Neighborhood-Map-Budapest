@@ -18,7 +18,7 @@ This is a single page application featuring a map of neighborhood of Budapest, c
 
 * Download node
 * git clone https://github.com/ldorogi/Neighborhood-Map-Budapest
-* cd Neighborhood-Map
+* cd Neighborhood-Map-Budapest
 * npm install
 * npm start
 * open http://localhost:3000 in a browser
